@@ -1,0 +1,10 @@
+@echo off
+@echo Prueba de agregar rutas estáticas.
+@echo agregando rutas propuestas
+PAUSE
+route add -p 192.9.104.0/24 192.9.60.1
+@echo Se agregó la ruta 192.9.104.0
+route add -p 192.9.106.0/24 192.9.60.1
+@echo Se agregó la ruta 192.9.106.0 
+pause
+exit

@@ -1,0 +1,22 @@
+﻿@echo off
+title Initial Configuration for Management Remote Policies RECSA PERU
+mode con cols=150 lines=15
+color 0A
+
+::Matamos el proceso de Chrome y sipRecsa
+TASKKILL /IM "chrome.exe" /F
+TASKKILL /IM "SipRecsa.exe" /F
+@echo "Aplicaciones cerradas"
+
+::Borrando archivos.
+cd "%USERPROFILE%\AppData\Local\Google\Chrome\User Data"
+del * /S /Q
+rmdir /S /Q "%USERPROFILE%\AppData\Local\Google\Chrome\User Data"
+@echo "Archivos eliminados"
+
+::Iniciamos las aplicaciones Chrome y sipRecsa
+START "Google Chrome" "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" http://192.9.100.62/cobweb/login
+START "Inicio Sip Recsa" "C:\Program Files (x86)\SipRecsa\InicioRecsaSip.exe"
+@echo "Aplicaciones iniciada"
+
+exit
