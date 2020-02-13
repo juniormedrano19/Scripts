@@ -6,12 +6,12 @@ param (
 )
 '''
 Write-Host "Desinstalado APPS NATIVAS DE Windows10" -ForegroundColor Black -BackgroundColor White;
-#$username = 'Agente' 
+#3$username = 'Agente' 
 #$password = '123456' 
-$username = 'Agente' 
-$password = 'krivera2017'
-#$username = 'Administrador' 
-#$password = 'R3c542016C4ll'
+#$username = 'Agente' 
+#$password = 'krivera2017'
+$username = 'Administrador' 
+$password = 'R3c542016C4ll'
 Write-Host "Validando Usuario y Password"
 $pw = ConvertTo-SecureString $password -AsPlainText -Force 
 $cred = New-Object Management.Automation.PSCredential ($username, $pw) 
@@ -66,7 +66,7 @@ Get-AppxPackage -AllUsers $obtener.Name | Remove-AppxPackage
 }
 
 
-$Job = Invoke-Command -Session $s -ScriptBlock $bloqueoProtectorPantalla -AsJob 
+$Job = Invoke-Command -Session $s -ScriptBlock $usuario2 -AsJob 
  $Null = Wait-Job -Job $Job
 
  Write-Host "Completed" 
